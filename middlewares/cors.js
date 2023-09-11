@@ -1,6 +1,6 @@
 const allowedCors = [
-  'https://uncles.fp.nomoredomainsicu.ru',
-  'http://uncles.fp.nomoredomainsicu.ru',
+  'https://api.uncle.movies.nomoredomainsicu.ru',
+  'http://api.uncle.movies.nomoredomainsicu.ru',
   'http://localhost:3000',
   'http://localhost:3001',
 ];
