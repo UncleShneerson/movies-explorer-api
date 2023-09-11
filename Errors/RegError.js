@@ -1,4 +1,4 @@
-const { REG_ERROR } = require('../utils/errorCodes');
+const { REG_ERROR, REG_MESSAGE } = require('../utils/codesMessages');
 
 class RegError extends Error {
   constructor(message) {
@@ -6,7 +6,7 @@ class RegError extends Error {
     if (message) {
       this.message = message;
     } else {
-      this.message = 'Пользователь с данным email уже существует';
+      this.message = REG_MESSAGE;
     }
     this.name = 'RegistrationError';
     this.statusCode = REG_ERROR;

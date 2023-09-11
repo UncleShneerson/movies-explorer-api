@@ -1,4 +1,4 @@
-const { VALIDATION_ERROR } = require('../utils/errorCodes');
+const { VALIDATION_ERROR, VALIDATION_MESSAGE } = require('../utils/codesMessages');
 
 class ValidationError extends Error {
   constructor(message) {
@@ -6,7 +6,7 @@ class ValidationError extends Error {
     if (message) {
       this.message = message;
     } else {
-      this.message = 'Одно или несколько полей не прошли валидацию';
+      this.message = VALIDATION_MESSAGE;
     }
     this.name = 'ValidationError';
     this.statusCode = VALIDATION_ERROR;

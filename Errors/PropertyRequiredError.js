@@ -1,4 +1,5 @@
 const ValidationError = require('./ValidationError');
+const { PROP_REQUIRED_MESSAGE } = require('../utils/codesMessages');
 
 class PropertyRequiredError extends ValidationError {
   constructor(message) {
@@ -6,7 +7,7 @@ class PropertyRequiredError extends ValidationError {
     if (message) {
       this.message = message;
     } else {
-      this.message = 'Одно или несколько значений не переданы';
+      this.message = PROP_REQUIRED_MESSAGE;
     }
     this.name = 'PropertyRequiredError';
   }

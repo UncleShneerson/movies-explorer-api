@@ -10,10 +10,8 @@ const { signUpValidate, logInValidate } = require('../middlewares/validation');
 // Регистрация и авторизация
 router.post('/signup', signUpValidate, createUser);
 router.post('/signin', logInValidate, login);
+router.use(auth); // Защита всех последующих роутов
 router.get('/signout', logout);
-
-// Защита роутов
-router.use(auth);
 
 // Данные
 router.use('/users', usersRoute);

@@ -1,4 +1,4 @@
-const { RIGHT_ERROR } = require('../utils/errorCodes');
+const { RIGHT_ERROR, RIGHT_ERROR_MESSAGE } = require('../utils/codesMessages');
 
 class NotEnoughRightsError extends Error {
   constructor(message) {
@@ -6,7 +6,7 @@ class NotEnoughRightsError extends Error {
     if (message) {
       this.message = message;
     } else {
-      this.message = 'У вас недостаточно прав';
+      this.message = RIGHT_ERROR_MESSAGE;
     }
     this.name = 'NotEnoughRightsError';
     this.statusCode = RIGHT_ERROR;

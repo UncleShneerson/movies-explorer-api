@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
+const { VALIDATE_URL_MESSAGE } = require('../utils/codesMessages');
 
 const movieSchema = new mongoose.Schema(
   {
@@ -52,7 +53,7 @@ const movieSchema = new mongoose.Schema(
       required: true,
       validate: {
         validator: (link) => validator.isURL(link),
-        message: 'Проверьте формат ссылки',
+        message: VALIDATE_URL_MESSAGE,
       },
     },
     trailerLink: {
@@ -60,7 +61,7 @@ const movieSchema = new mongoose.Schema(
       required: true,
       validate: {
         validator: (link) => validator.isURL(link),
-        message: 'Проверьте формат ссылки',
+        message: VALIDATE_URL_MESSAGE,
       },
     },
     thumbnail: {
@@ -68,7 +69,7 @@ const movieSchema = new mongoose.Schema(
       required: true,
       validate: {
         validator: (link) => validator.isURL(link),
-        message: 'Проверьте формат ссылки',
+        message: VALIDATE_URL_MESSAGE,
       },
     },
     owner: {

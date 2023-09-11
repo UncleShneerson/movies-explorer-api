@@ -1,11 +1,11 @@
-const { SERVER_ERROR } = require('../utils/errorCodes');
+const { SERVER_ERROR, SERVER_ERROR_MESSAGE } = require('../utils/codesMessages');
 
 const sendError = (err, req, res, next) => {
   const { statusCode = SERVER_ERROR, message } = err;
 
   res.status(statusCode).send({
     message: statusCode === SERVER_ERROR
-      ? 'На сервере произошла ошибка'
+      ? SERVER_ERROR_MESSAGE
       : message,
   }).end();
   next();

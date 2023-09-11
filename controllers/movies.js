@@ -2,7 +2,7 @@ const NotFoundError = require('../Errors/NotFoundError');
 const NotEnoughRightsError = require('../Errors/NotEnoughRightsError');
 const ValidationError = require('../Errors/ValidationError');
 
-const { CREATED } = require('../utils/errorCodes');
+const { CREATED, NOT_FOUND_MOVIE_MESSAGE } = require('../utils/codesMessages');
 
 const Movie = require('../models/movie');
 
@@ -10,7 +10,7 @@ module.exports.getMovies = (req, res, next) => {
   Movie.find({ owner: req.user._id })
     .then((movies) => {
       if (movies.length === 0) {
-        next(new NotFoundError('Сохраненных фильмов нет'));
+        next(new NotFoundError(NOT_FOUND_MOVIE_MESSAGE));
       } else {
         res.send(movies);
       }
@@ -58,14 +58,14 @@ module.exports.createMovie = (req, res, next) => {
 
 module.exports.deleteMovie = (req, res, next) => {
   Movie.findById(req.params._id)
-    .orFail(() => new NotFoundError('Данных c указанным id не существует'))
+    .orFail(() => new NotFoundError())
     .then((movie) => {
       const { _id, owner } = movie;
       if (String(owner) !== req.user._id) {
         throw new NotEnoughRightsError();
       }
       Movie.findByIdAndRemove(_id)
-        .orFail(() => new NotFoundError('Данных c указанным id не существует'))
+        .orFail(() => new NotFoundError())
         .then((cardData) => res.send(cardData))
         .catch(next);
     })

@@ -1,4 +1,4 @@
-const { AUTH_ERROR } = require('../utils/errorCodes');
+const { AUTH_ERROR, LOGIN_ERROR_MESSAGE } = require('../utils/codesMessages');
 
 class AuthError extends Error {
   constructor(message) {
@@ -6,7 +6,7 @@ class AuthError extends Error {
     if (message) {
       this.message = message;
     } else {
-      this.message = 'Неверные логин или пароль';
+      this.message = LOGIN_ERROR_MESSAGE;
     }
     this.name = 'AuthentificationError';
     this.statusCode = AUTH_ERROR;
