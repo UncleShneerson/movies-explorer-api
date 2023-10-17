@@ -30,24 +30,25 @@ const userUpdateValidate = celebrate({
 // Валидация карточек
 const movieCreateValidate = celebrate({
   body: Joi.object().keys({
-    movieId: Joi.number().required(),
-    nameRU: Joi.string().min(2).max(30).required(),
-    nameEN: Joi.string().min(2).max(30).required(),
-    country: Joi.string().min(2).max(30).required(),
-    director: Joi.string().min(2).max(30).required(),
+    id: Joi.number().required(),
+    nameRU: Joi.string().min(2).max(150).required(),
+    nameEN: Joi.string().min(2).max(150).required(),
+    country: Joi.string().min(2).max(150).required(),
+    director: Joi.string().min(2).max(150).required(),
     duration: Joi.number().required(),
     year: Joi.string().min(2).max(4).required(),
-    description: Joi.string().min(2).max(80).required(),
+    description: Joi.string().min(2).max(1500).required(),
     image: Joi.string().pattern(regexURL).required(),
     trailerLink: Joi.string().pattern(regexURL).required(),
-    thumbnail: Joi.string().pattern(regexURL).required(),
+    url: Joi.string().pattern(regexURL).required(),
   }),
 });
 
 // Валидация ID
 const IdValidate = celebrate({
   params: Joi.object().keys({
-    _id: Joi.string().hex().length(24),
+    // _id: Joi.string().hex().length(24),
+    id: Joi.number().required(),
   }),
 });
 
