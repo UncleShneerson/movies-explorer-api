@@ -7,6 +7,12 @@ const AuthError = require('../Errors/AuthError');
 
 const userSchema = new mongoose.Schema(
   {
+    name: {
+      required: true,
+      type: String,
+      minlength: 2,
+      maxlength: 30,
+    },
     email: {
       type: String,
       required: true,
@@ -20,12 +26,6 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
       select: false,
-    },
-    name: {
-      required: true,
-      type: String,
-      minlength: 2,
-      maxlength: 30,
     },
   },
   {

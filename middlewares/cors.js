@@ -1,8 +1,14 @@
 const allowedCors = [
   'https://api.uncle.movies.nomoredomainsicu.ru',
   'http://api.uncle.movies.nomoredomainsicu.ru',
+  'https://uncle.movies.nomoredomainsicu.ru',
+  'http://uncle.movies.nomoredomainsicu.ru',
+  'http://127.0.0.1:3000',
+  'http://127.0.0.1:3001',
+  'http://127.0.0.1:3002',
   'http://localhost:3000',
   'http://localhost:3001',
+  'http://localhost:3002',
 ];
 
 const cors = (req, res, next) => {
