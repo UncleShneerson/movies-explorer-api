@@ -25,7 +25,7 @@ app.use(cors);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-mongoose.connect(`mongodb://${DB_ADDRESS}:${DB_PORT}/${DB_NAME}`, {
+mongoose.connect(`mongodb://${DB_ADDRESS}:${DB_PORT}/bitfilmdb`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
